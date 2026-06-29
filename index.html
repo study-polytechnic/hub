@@ -447,28 +447,33 @@
             navigateTo('contentScreen', 'Study Materials');
         }
 
-        function switchTab(tab) {
-            state.activeTab = tab;
-            const tabVideo = document.getElementById('tabVideo');
-            const tabPdf = document.getElementById('tabPdf');
-            const videoContainer = document.getElementById('videoContainer');
-            const pdfContainer = document.getElementById('pdfContainer');
+       function switchTab(tab) {
+    state.activeTab = tab;
+    const tabVideo = document.getElementById('tabVideo');
+    const tabPdf = document.getElementById('tabPdf');
+    const videoContainer = document.getElementById('videoContainer');
+    const pdfContainer = document.getElementById('pdfContainer');
 
-            if (tab === 'video') {
-                // Style tabs
-                tabVideo.className = "flex-1 py-3 flex items-center justify-center font-bold text-blue-600 border-b-4 border-blue-600 bg-blue-50 transition-colors";
-                tabPdf.className = "flex-1 py-3 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-50 transition-colors border-b-4 border-transparent";
-                // Show/Hide content
-                videoContainer.classList.remove('hidden');
-                pdfContainer.classList.add('hidden');
-            } else {
-                tabPdf.className = "flex-1 py-3 flex items-center justify-center font-bold text-red-600 border-b-4 border-red-600 bg-red-50 transition-colors";
-                tabVideo.className = "flex-1 py-3 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-50 transition-colors border-b-4 border-transparent";
-                
-                pdfContainer.classList.remove('hidden');
-                videoContainer.classList.add('hidden');
-            }
-        }
-    </script>
+    if (tab === 'video') {
+        tabVideo.className = "flex-1 py-3 flex items-center justify-center font-bold text-blue-600 border-b-4 border-blue-600 bg-blue-50 transition-colors";
+        tabPdf.className = "flex-1 py-3 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-50 transition-colors border-b-4 border-transparent";
+        videoContainer.classList.remove('hidden');
+        pdfContainer.classList.add('hidden');
+    } else {
+        tabPdf.className = "flex-1 py-3 flex items-center justify-center font-bold text-red-600 border-b-4 border-red-600 bg-red-50 transition-colors";
+        tabVideo.className = "flex-1 py-3 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-50 transition-colors border-b-4 border-transparent";
+        pdfContainer.classList.remove('hidden');
+        videoContainer.classList.add('hidden');
+    }
+}
+
+// 👇 यह नया Function यहीं जोड़ना है
+function openApp() {
+    document.getElementById("splashScreen").classList.remove("active");
+    document.getElementById("mainApp").classList.remove("hidden");
+    initHomeScreen();
+}
+
+</script>
 </body>
 </html>
